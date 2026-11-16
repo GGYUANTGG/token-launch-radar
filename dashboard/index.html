@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Launch Radar — pre-token protocols ranked by peer-fitted implied value</title>
+<link rel="stylesheet" href="app.css">
+</head>
+<body>
+<main id="board" aria-busy="true"></main>
+<section class="method" aria-label="How the implied values are made">
+  <h2>How to read this board</h2>
+  <p>Every protocol ranked here is one DefiLlama records with <strong>no token</strong> in the sealed
+  snapshot: no market cap, no CoinGecko id, no ticker. A protocol that records no token may still have
+  one its record does not carry, so the board says <em>records no token</em>, never <em>has none</em>.
+  Protocols whose token already trades are never ranked; they are the evidence the values come from,
+  and the Live view shows them with the market's own prices.</p>
+  <p>The implied value is a peer comparison fitted from the snapshot itself, not a flat multiple and
+  not a list of names. The market's size curve is a least-squares line on (ln TVL, ln market cap) over
+  the tokened peers, with wild prints trimmed: value grows more slowly than TVL, so a $1B protocol
+  earns a smaller multiple than a $10M one. Each category then keeps its own offset from that line —
+  the median residual of its peers, shrunk toward zero so small categories cannot shout — and three
+  adjustments from the protocol's own record follow: its 7-day TVL momentum, how long it has run
+  with no token, and how many chains its TVL sits on. The detail view of every row shows the whole
+  arithmetic and the peers it was compared against, and the page recomputes each value from the
+  shipped parameters to prove the code and the board agree.</p>
+  <p>An implied value is this board's own claim about what a token would be worth if the protocol
+  issued one and its record stayed as it is. It is not a prediction that a token will be issued,
+  or when. The farm plan on each row is the practical half: what to do, in what order, what it
+  costs and how long it takes, if you want a wallet to be counted when one is.</p>
+</section>
+<script src="../data.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
